@@ -4,7 +4,7 @@
   "description": "Decorators for xml serialization",
   "main": "build/package/index.js",
   "types": "build/package/index.d.ts",
-  "scripts":
+  "scripts":{
     "build": "tsc",
     "pretest": "npm run build",
     "test": "mocha 'test/specs/**/*.js'"
