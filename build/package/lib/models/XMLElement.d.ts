@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import * as Promise from "bluebird";
-import { IDeclarationOptions } from 'js2xmlparser/lib/options';
+import { IOptions } from 'js2xmlparser/lib/options';
 import { XMLChild } from "./XMLChild";
 import { XMLAttribute } from "./XMLAttribute";
 import { IXMLElementOptions } from "../interfaces/IXMLElementOptions";
@@ -10,7 +10,7 @@ export declare class XMLElement {
     private children;
     private root?;
     static serialize(entity: any): string;
-    static serialize(root: string, entity: any, options: IDeclarationOptions): string;
+    static serialize(root: string, entity: any, options: IOptions): string;
     static serializeAsync(entity: any): Promise<string>;
     static serializeAsync(root: string, entity: any): Promise<string>;
     static getSchema(entities: any[], schemaOptions?: ISchemaOptions): any;
