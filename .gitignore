@@ -16,10 +16,6 @@ certificates/*
 # documentation
 documentation
 
-**/*.js
-**/*.js.map
-**/*.d.ts
-
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

@@ -10,14 +10,12 @@
     "strictNullChecks": true,
     "skipLibCheck": true,
     "pretty": true,
-    "lib": ["es6"]
+    "lib": ["es6"],
+    "outDir": "./build/package"
   },
   "include": [
     "lib/**/*",
     "test/**/*"
-  ],
-  "files": [
-    "index.ts"
   ],
   "exclude": [
     "node_modules"

@@ -1,9 +1,10 @@
 {
   "name": "xml-decorators",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Decorators for xml serialization",
-  "main": "index.js",
-  "scripts": {
+  "main": "build/package/index.js",
+  "types": "build/package/index.d.ts",
+  "scripts":
     "build": "tsc",
     "pretest": "npm run build",
     "test": "mocha 'test/specs/**/*.js'"
