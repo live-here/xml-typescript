@@ -33,6 +33,7 @@
       "check-format",
       "allow-leading-underscore",
       "allow-pascal-case"
-    ]
+    ],
+    "no-submodule-imports": false
   }
 }

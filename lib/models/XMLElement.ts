@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import * as Promise from "bluebird";
+import {IDeclarationOptions} from 'js2xmlparser/lib/options';
 import {XMLChild} from "./XMLChild";
 import {XMLAttribute} from "./XMLAttribute";
 import * as js2xmlparser from 'js2xmlparser';
@@ -16,7 +17,7 @@ export class XMLElement {
   private root?: string;
 
   static serialize(entity: any): string;
-  static serialize(root: string, entity: any): string;
+  static serialize(root: string, entity: any, options: IDeclarationOptions): string;
   static serialize(...args: any[]): string {
 
     const {root, entity} = this.getRootAndEntity(args);
