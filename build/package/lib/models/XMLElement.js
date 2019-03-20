@@ -4,11 +4,6 @@ require("reflect-metadata");
 var Promise = require("bluebird");
 var js2xmlparser = require("js2xmlparser");
 var utils_1 = require("../utils");
-var PARSER_OPTIONS = {
-    declaration: {
-        encoding: 'UTF-8'
-    }
-};
 var META_KEY = 'xml:element';
 var XMLElement = /** @class */ (function () {
     function XMLElement() {
@@ -20,7 +15,14 @@ var XMLElement = /** @class */ (function () {
         }
         var _a = this.getRootAndEntity(args), root = _a.root, entity = _a.entity;
         var schema = this.getSchema(entity);
-        return js2xmlparser.parse(root, schema, PARSER_OPTIONS);
+        var parserOptions = args[2]
+            ? args[2]
+            : {
+                declaration: {
+                    encoding: 'UTF-8'
+                }
+            };
+        return js2xmlparser.parse(root, schema, parserOptions);
     };
     XMLElement.serializeAsync = function () {
         var args = [];
@@ -28,8 +30,15 @@ var XMLElement = /** @class */ (function () {
             args[_i] = arguments[_i];
         }
         var _a = this.getRootAndEntity(args), root = _a.root, entity = _a.entity;
+        var parserOptions = args[2]
+            ? args[2]
+            : {
+                declaration: {
+                    encoding: 'UTF-8'
+                }
+            };
         return this.getSchemaAsync(entity)
-            .then(function (schema) { return js2xmlparser.parse(root, schema, PARSER_OPTIONS); });
+            .then(function (schema) { return js2xmlparser.parse(root, schema, parserOptions); });
     };
     XMLElement.getSchema = function (arg, schemaOptions) {
         var _this = this;

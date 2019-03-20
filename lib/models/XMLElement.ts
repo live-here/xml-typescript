@@ -7,11 +7,6 @@ import {DEFAULT_ATTRIBUTE_PROPERTY} from "../utils";
 import {IXMLElementOptions} from "../interfaces/IXMLElementOptions";
 import {ISchemaOptions} from "../interfaces/ISchemaOptions";
 
-const PARSER_OPTIONS = {
-  declaration: {
-    encoding: 'UTF-8'
-  }
-};
 const META_KEY = 'xml:element';
 
 export class XMLElement {
@@ -27,7 +22,15 @@ export class XMLElement {
     const {root, entity} = this.getRootAndEntity(args);
     const schema = this.getSchema(entity);
 
-    return js2xmlparser.parse(root, schema, PARSER_OPTIONS);
+    const parserOptions = args[2]
+      ? args[2]
+      : {
+          declaration: {
+            encoding: 'UTF-8'
+          }
+        };
+
+    return js2xmlparser.parse(root, schema, parserOptions);
   }
 
   static serializeAsync(entity: any): Promise<string>;
@@ -36,8 +39,16 @@ export class XMLElement {
 
     const {root, entity} = this.getRootAndEntity(args);
 
+    const parserOptions = args[2]
+      ? args[2]
+      : {
+        declaration: {
+          encoding: 'UTF-8'
+        }
+      };
+
     return this.getSchemaAsync(entity)
-      .then(schema => js2xmlparser.parse(root, schema, PARSER_OPTIONS))
+      .then(schema => js2xmlparser.parse(root, schema, parserOptions))
       ;
   }
 
