@@ -9,7 +9,7 @@ export declare class Person {
     private hobbies;
     private friends;
     private pets;
-    constructor(firstname: string, lastname: string, age: number);
+    constructor(firstname: string, lastname: string, age: number, pets?: any, hobbies?: any);
     getFirstname(): string;
     getAge(): number;
     addHobby(hobby: Hobby): void;

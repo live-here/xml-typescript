@@ -9,97 +9,91 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var XMLChild_1 = require("../../lib/annotations/XMLChild");
-var XMLElement_1 = require("../../lib/annotations/XMLElement");
-var XMLAttribute_1 = require("../../lib/annotations/XMLAttribute");
+const XMLChild_1 = require("../../lib/annotations/XMLChild");
+const XMLElement_1 = require("../../lib/annotations/XMLElement");
+const XMLAttribute_1 = require("../../lib/annotations/XMLAttribute");
 exports.PERSON_ROOT = 'person';
 exports.PERSON_NS = 'ps';
-var Person = /** @class */ (function () {
-    function Person(firstname, lastname, age) {
+let Person = class Person {
+    constructor(firstname, lastname, age, pets, hobbies) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
+        this.pets = pets;
+        this.hobbies = hobbies;
     }
-    Object.defineProperty(Person.prototype, "fullname", {
-        get: function () {
-            return this.firstname + ' ' + this.lastname;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Person.prototype.getFirstname = function () {
+    get fullname() {
+        return this.firstname + ' ' + this.lastname;
+    }
+    getFirstname() {
         return this.firstname;
-    };
-    Person.prototype.getAge = function () {
+    }
+    getAge() {
         return this.age;
-    };
-    Person.prototype.addHobby = function (hobby) {
+    }
+    addHobby(hobby) {
         if (!this.hobbies)
             this.hobbies = [];
         this.hobbies.push(hobby);
-    };
-    Person.prototype.addHobbies = function (hobbies) {
-        var _a;
+    }
+    addHobbies(hobbies) {
         if (!this.hobbies)
             this.hobbies = [];
-        (_a = this.hobbies).push.apply(_a, hobbies);
-    };
-    Person.prototype.addFriend = function (friend) {
+        this.hobbies.push(...hobbies);
+    }
+    addFriend(friend) {
         if (!this.friends)
             this.friends = [];
         this.friends.push(friend);
-    };
-    Person.prototype.addFriends = function (friends) {
-        var _a;
+    }
+    addFriends(friends) {
         if (!this.friends)
             this.friends = [];
-        (_a = this.friends).push.apply(_a, friends);
-    };
-    Person.prototype.addPets = function (pets) {
-        var _a;
+        this.friends.push(...friends);
+    }
+    addPets(pets) {
         if (!this.pets)
             this.pets = [];
-        (_a = this.pets).push.apply(_a, pets);
-    };
-    __decorate([
-        XMLAttribute_1.XMLAttribute({ namespace: exports.PERSON_NS }),
-        __metadata("design:type", String)
-    ], Person.prototype, "firstname", void 0);
-    __decorate([
-        XMLAttribute_1.XMLAttribute({ namespace: exports.PERSON_NS }),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [])
-    ], Person.prototype, "fullname", null);
-    __decorate([
-        XMLAttribute_1.XMLAttribute({ namespace: exports.PERSON_NS }),
-        __metadata("design:type", Number)
-    ], Person.prototype, "age", void 0);
-    __decorate([
-        XMLChild_1.XMLChild({
-            namespace: exports.PERSON_NS,
-            name: 'hobby'
-        }),
-        __metadata("design:type", Array)
-    ], Person.prototype, "hobbies", void 0);
-    __decorate([
-        XMLChild_1.XMLChild({
-            namespace: exports.PERSON_NS,
-            stripPluralS: true
-        }),
-        __metadata("design:type", Array)
-    ], Person.prototype, "friends", void 0);
-    __decorate([
-        XMLChild_1.XMLChild({
-            name: 'pet',
-            implicitStructure: 'pets.$'
-        }),
-        __metadata("design:type", Array)
-    ], Person.prototype, "pets", void 0);
-    Person = __decorate([
-        XMLElement_1.XMLElement({ root: exports.PERSON_ROOT }),
-        __metadata("design:paramtypes", [String, String, Number])
-    ], Person);
-    return Person;
-}());
+        this.pets.push(...pets);
+    }
+};
+__decorate([
+    XMLAttribute_1.XMLAttribute({ namespace: '' }),
+    __metadata("design:type", String)
+], Person.prototype, "firstname", void 0);
+__decorate([
+    XMLAttribute_1.XMLAttribute({ namespace: exports.PERSON_NS }),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [])
+], Person.prototype, "fullname", null);
+__decorate([
+    XMLAttribute_1.XMLAttribute({ namespace: exports.PERSON_NS }),
+    __metadata("design:type", Number)
+], Person.prototype, "age", void 0);
+__decorate([
+    XMLChild_1.XMLChild({
+        namespace: exports.PERSON_NS,
+        name: 'hobby'
+    }),
+    __metadata("design:type", Array)
+], Person.prototype, "hobbies", void 0);
+__decorate([
+    XMLChild_1.XMLChild({
+        namespace: exports.PERSON_NS,
+        stripPluralS: true
+    }),
+    __metadata("design:type", Array)
+], Person.prototype, "friends", void 0);
+__decorate([
+    XMLChild_1.XMLChild({
+        name: 'pet',
+        implicitStructure: 'pets.$'
+    }),
+    __metadata("design:type", Array)
+], Person.prototype, "pets", void 0);
+Person = __decorate([
+    XMLElement_1.XMLElement({ root: exports.PERSON_ROOT }),
+    __metadata("design:paramtypes", [String, String, Number, Object, Object])
+], Person);
 exports.Person = Person;
 //# sourceMappingURL=Person.js.map

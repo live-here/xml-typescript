@@ -19,7 +19,7 @@ export class Hobby {
 
   constructor(name: string,
               description: string,
-              xmlvalue: any) {
+              xmlvalue?: any) {
 
     this.name = name;
     this.description = description;

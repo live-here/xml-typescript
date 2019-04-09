@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
-var XMLElement_1 = require("../models/XMLElement");
+const XMLElement_1 = require("../models/XMLElement");
 function XMLElement(options) {
-    return function (target) {
+    return (target) => {
         return XMLElement_1.XMLElement.annotate(target.prototype, options);
     };
 }
