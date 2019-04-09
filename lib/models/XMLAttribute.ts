@@ -14,6 +14,7 @@ export class XMLAttribute {
                   descriptor?: TypedPropertyDescriptor<any>): void {
 
     const element = XMLElement.getOrCreateIfNotExists(target);
+
     const fullOptions = Object.assign({
       getter(entity: any): any {
         if (descriptor && descriptor.get) {
