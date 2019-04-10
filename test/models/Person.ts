@@ -9,7 +9,7 @@ export const PERSON_NS = 'ps';
 @XMLElement({root: PERSON_ROOT})
 export class Person {
 
-  @XMLAttribute({namespace: PERSON_NS})
+  @XMLAttribute({namespace: ''})
   private firstname: string;
 
   private lastname: string;
@@ -41,13 +41,19 @@ export class Person {
   })
   private pets: string[];
 
-  constructor(firstname: string,
-              lastname: string,
-              age: number) {
+  constructor(
+    firstname: string,
+    lastname: string,
+    age: number,
+    pets?: any,
+    hobbies?: any,
+  ) {
 
     this.firstname = firstname;
     this.lastname = lastname;
     this.age = age;
+    this.pets = pets;
+    this.hobbies = hobbies;
   }
 
   getFirstname(): string {

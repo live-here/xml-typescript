@@ -9,6 +9,7 @@ export declare class XMLElement {
     private attributes;
     private children;
     private root?;
+    value: any;
     static serialize(entity: any): string;
     static serialize(root: string, entity: any, options: IOptions): string;
     static serializeAsync(entity: any): Promise<string>;

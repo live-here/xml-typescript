@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noUnusedLocals": true,
@@ -10,7 +10,13 @@
     "strictNullChecks": true,
     "skipLibCheck": true,
     "pretty": true,
-    "lib": ["es6"],
+    "lib": [
+      "es2017",
+      "es6",
+      "dom",
+      "scripthost",
+      "esnext"
+    ],
     "outDir": "./build/package"
   },
   "include": [

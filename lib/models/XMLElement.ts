@@ -11,10 +11,10 @@ import {ISchemaOptions} from "../interfaces/ISchemaOptions";
 const META_KEY = 'xml:element';
 
 export class XMLElement {
-
   private attributes: XMLAttribute[];
   private children: XMLChild[];
   private root?: string;
+  public value: any;
 
   static serialize(entity: any): string;
   static serialize(root: string, entity: any, options: IOptions): string;
@@ -170,6 +170,11 @@ export class XMLElement {
     const object: any = {};
     const attrProperty = schemaOptions.attrContainerName || DEFAULT_ATTRIBUTE_PROPERTY;
 
+    const val = this.value && this.value(entity);
+    if (val) {
+      object['#'] = val;
+    }
+
     if (this.attributes) {
       object[attrProperty] = {};
       this.attributes.forEach(attr => attr.setSchema(object[attrProperty], entity));
@@ -179,6 +184,7 @@ export class XMLElement {
       this.children.forEach(child => child.setSchema(object, entity, isAsync, schemaOptions));
     }
 
+    // console.log('object', object);
     return object;
   }
 }

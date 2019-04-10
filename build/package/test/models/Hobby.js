@@ -9,33 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var XMLAttribute_1 = require("../../lib/annotations/XMLAttribute");
+const XMLAttribute_1 = require("../../lib/annotations/XMLAttribute");
+const XMLValue_1 = require("../../lib/annotations/XMLValue");
 exports.HOBBY_NS = 'h';
-var Hobby = /** @class */ (function () {
-    function Hobby(name, description) {
+class Hobby {
+    constructor(name, description, xmlvalue) {
         this.h = 'http://hobby.example.com';
         this.name = name;
         this.description = description;
+        this.xmlvalue = xmlvalue;
     }
-    Hobby.prototype.getName = function () {
+    getName() {
         return this.name;
-    };
-    Hobby.prototype.getDescription = function () {
+    }
+    getDescription() {
         return this.description;
-    };
-    __decorate([
-        XMLAttribute_1.XMLAttribute({ namespace: 'xmlns' }),
-        __metadata("design:type", String)
-    ], Hobby.prototype, "h", void 0);
-    __decorate([
-        XMLAttribute_1.XMLAttribute({ namespace: exports.HOBBY_NS }),
-        __metadata("design:type", String)
-    ], Hobby.prototype, "name", void 0);
-    __decorate([
-        XMLAttribute_1.XMLAttribute({ namespace: exports.HOBBY_NS }),
-        __metadata("design:type", String)
-    ], Hobby.prototype, "description", void 0);
-    return Hobby;
-}());
+    }
+    getXMLValue() {
+        return this.xmlvalue;
+    }
+}
+__decorate([
+    XMLAttribute_1.XMLAttribute({ namespace: 'xmlns' }),
+    __metadata("design:type", String)
+], Hobby.prototype, "h", void 0);
+__decorate([
+    XMLAttribute_1.XMLAttribute({ namespace: exports.HOBBY_NS }),
+    __metadata("design:type", String)
+], Hobby.prototype, "name", void 0);
+__decorate([
+    XMLAttribute_1.XMLAttribute({ namespace: exports.HOBBY_NS }),
+    __metadata("design:type", String)
+], Hobby.prototype, "description", void 0);
+__decorate([
+    XMLValue_1.XMLValue,
+    __metadata("design:type", Object)
+], Hobby.prototype, "xmlvalue", void 0);
 exports.Hobby = Hobby;
 //# sourceMappingURL=Hobby.js.map
