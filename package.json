@@ -1,6 +1,6 @@
 {
   "name": "xml-decorators",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Decorators for xml serialization",
   "main": "build/package/index.js",
   "types": "build/package/index.d.ts",
